@@ -47,3 +47,60 @@
 .bg-blue {
   background-color: blue;
 }
+
+:root {
+  --fade-out-delay: fadeOut ease 2s;
+}
+
+.fade-out {
+  animation: var(--fade-out-delay);
+  -webkit-animation: var(--fade-out-delay);
+  -moz-animation: var(--fade-out-delay);
+  -o-animation: var(--fade-out-delay);
+  -ms-animation: var(--fade-out-delay);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}

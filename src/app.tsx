@@ -2,6 +2,10 @@ import { JSX } from "preact";
 import { useState } from "preact/hooks";
 import "./app.css";
 
+const copyToClipboard = (content: string) => {
+  navigator.clipboard.writeText(content);
+};
+
 interface RbgColorProps {
   color: "red" | "green" | "blue";
   value?: number;
@@ -107,6 +111,7 @@ const ColorPicker = () => {
 
   const changeHandler = (value: string) => {
     setColor(value);
+    copyToClipboard(value);
   };
 
   return (
@@ -114,7 +119,19 @@ const ColorPicker = () => {
       <h1>Color Picker</h1>
       <h3>RGB (Red, Green, Blue)</h3>
       <RgbColorPicker onChange={changeHandler} />
-      <div style={{ "background-color": color, height: "50px" }}></div>
+      <div
+        id="div-color"
+        style={{ "background-color": color, height: "50px" }}
+      ></div>
+      <div
+        class="fade-out"
+        onTransitionEnd={(event) => {
+          console.log(event);
+          event.currentTarget.remove();
+        }}
+      >
+        Text copied
+      </div>
     </>
   );
 };
